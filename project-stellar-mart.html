@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stellar Mart Sales Comparison — Bleezy Data Lab</title>
+  <meta name="description" content="Case study: comparing sales, customers and payments across three supermarket branches with SQL, Excel and an interactive Power BI report.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">Bleezy Data Lab</a>
+      <nav class="nav" aria-label="Main">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="projects.html">Projects</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="section wrap case-head" style="border-top: none;">
+      <a class="back-link" href="projects.html">Back to all projects</a>
+      <h1>Stellar Mart Sales Comparison Analysis</h1>
+      <p class="lede">Why do three branches of the same supermarket chain perform so differently? I cleaned the data, built the KPIs in DAX and compared the branches in an interactive Power BI report.</p>
+      <div class="card-tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Excel</span>
+      </div>
+      <div class="cta-row" style="margin-top: 0;">
+        <a class="btn btn-primary" href="#walkthrough">Watch the walkthrough</a>
+        <a class="btn btn-secondary" href="https://github.com/Awonfor/Stellar_Mart_Project" target="_blank" rel="noopener">View repo on GitHub</a>
+      </div>
+
+      <dl class="facts">
+        <div class="fact"><dt>Transactions</dt><dd>1,000</dd></div>
+        <div class="fact"><dt>Revenue analysed</dt><dd>$323K</dd></div>
+        <div class="fact"><dt>Branches</dt><dd>3 cities</dd></div>
+        <div class="fact"><dt>Product lines</dt><dd>6</dd></div>
+        <div class="fact"><dt>Period</dt><dd>Jan–Mar 2019</dd></div>
+        <div class="fact"><dt>Custom KPIs</dt><dd>5 in DAX</dd></div>
+      </dl>
+    </section>
+
+    <section class="section wrap case-section" id="walkthrough">
+      <p class="section-label">Walkthrough</p>
+      <h2>Explore the dashboards</h2>
+      <p>Power BI Desktop reports can't be embedded in a static site, so here is a screen recording of each branch dashboard in use: the drillthrough pages, custom tooltips and drill-down interactions.</p>
+
+      <div class="video-panel">
+        <div class="video-tabs" role="tablist" aria-label="Choose a dashboard recording">
+          <button class="video-tab" role="tab" aria-selected="true"  data-src="assets/videos/stellar-store-a.mp4" data-poster="assets/img/stellar-store-a.jpg" data-caption="Store A, Yangon: monthly growth, product line revenue and payment mix.">Store A, Yangon</button>
+          <button class="video-tab" role="tab" aria-selected="false" data-src="assets/videos/stellar-store-b.mp4" data-poster="assets/img/stellar-store-b.jpg" data-caption="Store B, Mandalay: the slowest-growing branch and its category mix.">Store B, Mandalay</button>
+          <button class="video-tab" role="tab" aria-selected="false" data-src="assets/videos/stellar-store-c.mp4" data-poster="assets/img/stellar-store-c.jpg" data-caption="Store C, Naypyitaw: Food &amp; Beverages leadership and cash-heavy payments.">Store C, Naypyitaw</button>
+        </div>
+        <div class="video-frame">
+          <video controls preload="metadata" playsinline poster="assets/img/stellar-store-a.jpg">
+            <source src="assets/videos/stellar-store-a.mp4" type="video/mp4">
+            Your browser can't play this video. <a href="assets/videos/stellar-store-a.mp4">Download it instead.</a>
+          </video>
+        </div>
+        <p class="video-caption" aria-live="polite">Store A, Yangon: monthly growth, product line revenue and payment mix.</p>
+      </div>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">Business problem</p>
+      <h2>Three cities, three different results</h2>
+      <p>Stellar Mart is a mid-sized supermarket chain with branches in Yangon, Mandalay and Naypyitaw, selling across six product lines and running a membership program called Stellar Rewards. In 2019 management saw uneven sales, different profitability by branch and varying customer engagement, and wanted to know why some branches outperform others and how customer preferences drive revenue.</p>
+      <p>The questions I set out to answer:</p>
+      <ul class="bullet-list">
+        <li>Which branch is growing, which is stalling, and when did each one dip?</li>
+        <li>How much do members contribute compared with non-members?</li>
+        <li>Which product lines carry each branch, and where is the group over-reliant on one category?</li>
+        <li>Which payment methods bring in revenue, and which ones are the most efficient?</li>
+      </ul>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">Approach</p>
+      <h2>From raw export to interactive report</h2>
+      <ol class="steps">
+        <li><div><strong>Cleaned the data in Excel</strong><span>Removed duplicates, fixed inconsistent text values and handled missing values so the dataset was complete before analysis.</span></div></li>
+        <li><div><strong>Validated it in SQL Server</strong><span>Loaded the cleaned file into SQL and ran queries to confirm row counts, totals and category values before modeling.</span></div></li>
+        <li><div><strong>Modeled and measured in Power BI</strong><span>Built the data model, then wrote the five KPIs below as DAX measures.</span></div></li>
+        <li><div><strong>Designed interactive dashboards</strong><span>One group-level executive page plus a page per branch, with drillthrough, custom tooltips and drill-down/up hierarchies.</span></div></li>
+        <li><div><strong>Wrote up insights and recommendations</strong><span>Each dashboard comes with positive findings, risks and actions for management.</span></div></li>
+      </ol>
+
+      <figure class="figure">
+        <img src="assets/img/stellar-exec.png" alt="Group-level executive dashboard in Power BI" loading="lazy">
+        <figcaption>Group-level executive dashboard: revenue by month and branch, product line contribution, payment mix and satisfaction.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">Measures</p>
+      <h2>The five KPIs behind the dashboards</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>KPI</th><th>What it tells management</th><th>DAX</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Same-Store Sales Growth</td>
+              <td>Month-over-month sales change for each city</td>
+              <td><code>DIVIDE([Current Month Sales] - [Previous Month Sales], [Previous Month Sales], 0)</code></td>
+            </tr>
+            <tr>
+              <td>Member Value Ratio</td>
+              <td>How much revenue comes from Stellar Rewards members</td>
+              <td><code>[Total Member Revenue] / [Total Revenue]</code></td>
+            </tr>
+            <tr>
+              <td>Product Line Contribution</td>
+              <td>Each category's share of total revenue</td>
+              <td><code>DIVIDE([Total Revenue], CALCULATE([Total Revenue], ALL('Main Tables'[Product_line])), 0)</code></td>
+            </tr>
+            <tr>
+              <td>Customer Satisfaction Index</td>
+              <td>Average rating as a share of the maximum rating</td>
+              <td><code>DIVIDE([Total Ratings], [Total Responses] * [Max Rating])</code></td>
+            </tr>
+            <tr>
+              <td>Payment Method Efficiency</td>
+              <td>Share of transactions that go through the more efficient payment methods</td>
+              <td><code>[Efficient Payment Transaction] / [Transaction Count]</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">Findings</p>
+      <h2>What the data showed</h2>
+
+      <div class="split">
+        <div>
+          <h3>Working well</h3>
+          <ul class="bullet-list">
+            <li>Members bring in just over half of revenue (50.8%), so the loyalty program is clearly pulling its weight.</li>
+            <li>Food &amp; Beverages is the top category for the group, followed by Sports &amp; Travel and Electronics.</li>
+            <li>Credit card payments are the most efficient, even though cash brings in the most revenue.</li>
+            <li>Customer satisfaction is steady across all three branches, averaging about 7 out of 10.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Worth watching</h3>
+          <ul class="bullet-list">
+            <li>All three branches dipped in February, and Store A fell furthest (down 23% from January).</li>
+            <li>Store B barely recovered in March (+0.5%), while Store A bounced back strongly (+26.1%).</li>
+            <li>Health &amp; Beauty is the weakest line for the group, a gap for cross-selling.</li>
+            <li>Each branch leans on a different category, so none of them is balanced.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">Branch comparison</p>
+      <h2>Same chain, three stories</h2>
+
+      <div class="compare-grid">
+        <article class="compare-card">
+          <h3>Store A, Yangon</h3>
+          <p class="big">+26.1%</p>
+          <p class="big-label">sales growth, February to March</p>
+          <ul>
+            <li><b>Revenue:</b> $106.2K</li>
+            <li><b>Top category:</b> Home &amp; Lifestyle ($22.4K)</li>
+            <li><b>Top payment:</b> E-wallet ($39.3K)</li>
+            <li><b>Risk:</b> deepest February drop, and its leading category is weak at group level</li>
+          </ul>
+        </article>
+        <article class="compare-card">
+          <h3>Store B, Mandalay</h3>
+          <p class="big">+0.5%</p>
+          <p class="big-label">sales growth, February to March</p>
+          <ul>
+            <li><b>Revenue:</b> $106.2K</li>
+            <li><b>Top category:</b> Sports &amp; Travel ($20.0K)</li>
+            <li><b>Top payment:</b> Credit card ($37.3K), evenly split</li>
+            <li><b>Risk:</b> flat momentum and the lowest satisfaction of the three</li>
+          </ul>
+        </article>
+        <article class="compare-card">
+          <h3>Store C, Naypyitaw</h3>
+          <p class="big">+12.9%</p>
+          <p class="big-label">sales growth, February to March</p>
+          <ul>
+            <li><b>Revenue:</b> $110.6K</li>
+            <li><b>Top category:</b> Food &amp; Beverages ($23.8K)</li>
+            <li><b>Top payment:</b> Cash ($43.1K)</li>
+            <li><b>Risk:</b> heavy reliance on cash and weak Home &amp; Lifestyle sales</li>
+          </ul>
+        </article>
+      </div>
+
+      <figure class="figure">
+        <img src="assets/img/stellar-store-b-insight.png" alt="Store B branch dashboard in Power BI" loading="lazy">
+        <figcaption>Branch-level dashboard (Store B), one of three with the same layout so branches can be compared directly.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">Recommendations</p>
+      <h2>What I would tell management</h2>
+      <ul class="bullet-list">
+        <li><strong>Stabilize growth.</strong> Run consistent monthly promotions and balance seasonal categories to smooth out dips like February's.</li>
+        <li><strong>Prioritize Store B.</strong> Focus on service quality, personalized offers and local campaigns to restart growth in Mandalay.</li>
+        <li><strong>Optimize payments.</strong> Offer cashback or member-only discounts to move customers from cash and e-wallet towards credit cards.</li>
+        <li><strong>Lean on membership.</strong> Add tiered rewards and member-only campaigns, since members already drive over half of revenue.</li>
+        <li><strong>Broaden the product mix.</strong> Keep pushing Food &amp; Beverages while bundling and cross-selling Health &amp; Beauty and Lifestyle.</li>
+        <li><strong>Monitor monthly.</strong> Track KPIs at store level so a drop like February's is caught and acted on early.</li>
+      </ul>
+
+      <p class="callout">Scope note: the dataset covers January to March 2019 only, so the February dip can't be tested against a full seasonal cycle. With a full year of data I would check whether it repeats.</p>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">More</p>
+      <div class="case-nav">
+        <a class="btn btn-secondary" href="https://github.com/Awonfor/Stellar_Mart_Project" target="_blank" rel="noopener">Full write-up and dataset on GitHub</a>
+        <a class="btn btn-primary" href="project-evergreen.html">Next project: Evergreen Health Center</a>
+      </div>
+      <p class="video-caption" style="margin-top: var(--space-3);">Personal project built for learning and portfolio purposes. The business name is fictional and the data comes from a public Kaggle dataset.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; 2026 Bleezy Data Lab.</p>
+      <div class="footer-links">
+        <a href="mailto:romanusawonfor@gmail.com">Email</a>
+        <a href="https://github.com/Awonfor" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/awonfor-forcham" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.video-tab');
+      var video = document.querySelector('.video-frame video');
+      var caption = document.querySelector('.video-caption[aria-live]');
+      if (!tabs.length || !video) return;
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (t) { t.setAttribute('aria-selected', 'false'); });
+          tab.setAttribute('aria-selected', 'true');
+          video.pause();
+          video.poster = tab.dataset.poster;
+          video.src = tab.dataset.src;
+          video.load();
+          if (caption) caption.innerHTML = tab.dataset.caption;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

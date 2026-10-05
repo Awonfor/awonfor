@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evergreen Health Center Analytics — Bleezy Data Lab</title>
+  <meta name="description" content="Case study: a three-page Power BI suite covering scheduling, billing and workforce utilization for a healthcare provider, with an AI insights page.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">Bleezy Data Lab</a>
+      <nav class="nav" aria-label="Main">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="projects.html">Projects</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="section wrap case-head" style="border-top: none;">
+      <a class="back-link" href="projects.html">Back to all projects</a>
+      <h1>Evergreen Health Center Operations &amp; Billing Analytics</h1>
+      <p class="lede">A healthcare provider was losing time and revenue to no-shows, billing disputes and uneven doctor workloads. I modeled the data and built a three-page Power BI suite to make those problems visible.</p>
+      <div class="card-tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Excel</span>
+      </div>
+      <div class="cta-row" style="margin-top: 0;">
+        <a class="btn btn-primary" href="#walkthrough">Watch the walkthrough</a>
+        <a class="btn btn-secondary" href="https://github.com/Awonfor/Evergreen_Health_Center" target="_blank" rel="noopener">View repo on GitHub</a>
+      </div>
+
+      <dl class="facts">
+        <div class="fact"><dt>Dashboard pages</dt><dd>3</dd></div>
+        <div class="fact"><dt>KPI areas</dt><dd>6</dd></div>
+        <div class="fact"><dt>AI visuals</dt><dd>2</dd></div>
+      </dl>
+    </section>
+
+    <section class="section wrap case-section" id="walkthrough">
+      <p class="section-label">Walkthrough</p>
+      <h2>Explore the dashboards</h2>
+      <p>Power BI Desktop reports can't be embedded in a static site, so here is a screen recording of the dashboards in use, showing how the filters and visuals respond.</p>
+
+      <div class="video-panel">
+        <div class="video-tabs" role="tablist" aria-label="Choose a dashboard recording">
+          <button class="video-tab" role="tab" aria-selected="true"  data-src="assets/videos/evergreen-operations.mp4" data-poster="assets/img/evergreen-operations.jpg" data-caption="Operations dashboard: scheduling, appointment status and doctor utilization.">Operations dashboard</button>
+          <button class="video-tab" role="tab" aria-selected="false" data-src="assets/videos/evergreen-billing.mp4" data-poster="assets/img/evergreen-billing.jpg" data-caption="Billing dashboard: revenue, payments and where money is at risk.">Billing dashboard</button>
+        </div>
+        <div class="video-frame">
+          <video controls preload="metadata" playsinline poster="assets/img/evergreen-operations.jpg">
+            <source src="assets/videos/evergreen-operations.mp4" type="video/mp4">
+            Your browser can't play this video. <a href="assets/videos/evergreen-operations.mp4">Download it instead.</a>
+          </video>
+        </div>
+        <p class="video-caption" aria-live="polite">Operations dashboard: scheduling, appointment status and doctor utilization.</p>
+      </div>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">Business problem</p>
+      <h2>Inefficiency that threatens patient-centered care</h2>
+      <p>Evergreen Health Center's leadership wanted to protect its mission of accessible, transparent, high-quality care, but day-to-day operations were getting in the way. Management needed clear visibility into where the friction was coming from.</p>
+      <ul class="bullet-list">
+        <li>High appointment no-shows and cancellations were reducing utilization.</li>
+        <li>Billing and insurance disputes were delaying revenue collection.</li>
+        <li>Inaccurate patient records were causing operational and billing errors.</li>
+        <li>Doctor workload was uneven, leading to inefficiency and burnout risk.</li>
+        <li>Current systems offered little visibility or control, putting financial stability and patient satisfaction at risk.</li>
+      </ul>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">Approach</p>
+      <h2>From hospital data to decision support</h2>
+      <ol class="steps">
+        <li><div><strong>Ingested and cleaned the data</strong><span>Standardized appointment statuses, validated revenue categories and aligned the time dimensions, using Excel and SQL for validation.</span></div></li>
+        <li><div><strong>Modeled the relationships</strong><span>Connected appointments, revenue, doctors, departments and branches into one model and wrote the measures in DAX.</span></div></li>
+        <li><div><strong>Built the core dashboards</strong><span>An Operations dashboard for scheduling and utilization, and a Billing dashboard for revenue and payment analysis.</span></div></li>
+        <li><div><strong>Added AI-powered insights</strong><span>A Q&amp;A visual so executives can ask questions in plain language, and a decomposition tree to trace revenue problems to their root cause.</span></div></li>
+        <li><div><strong>Validated the numbers</strong><span>Cross-checked KPI consistency across dashboards and made sure they matched stakeholder objectives.</span></div></li>
+      </ol>
+
+      <figure class="figure">
+        <img src="assets/img/evergreen-model.png" alt="Data model showing relationships between appointments, revenue, doctors, departments and branches" loading="lazy">
+        <figcaption>Data model: appointments, revenue, doctors, departments and branches connected so every dashboard filters consistently.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">What the suite measures</p>
+      <h2>Six KPI areas, three dashboard pages</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>KPI area</th><th>Problem it addresses</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Access &amp; scheduling efficiency</td><td>How well appointment slots are used and how quickly patients can be seen</td></tr>
+            <tr><td>Patient reliability &amp; engagement</td><td>No-shows and cancellations that leave slots empty</td></tr>
+            <tr><td>Financial performance &amp; cash flow</td><td>Revenue collected and how payments move through billing</td></tr>
+            <tr><td>Revenue risk exposure</td><td>Billing and insurance disputes that delay or leak revenue</td></tr>
+            <tr><td>Service line performance</td><td>Which departments and services drive results</td></tr>
+            <tr><td>Workforce utilization</td><td>Whether doctor workload is balanced across departments</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="split" style="margin-top: var(--space-4);">
+        <div>
+          <h3>Operations and Billing pages</h3>
+          <p>Management can see scheduling, utilization, revenue and payment status side by side, filtered by doctor, department or branch, and pinpoint where revenue leaks.</p>
+        </div>
+        <div>
+          <h3>AI Insights page</h3>
+          <p>Executives can type a question into the Q&amp;A visual instead of building a report, and use the decomposition tree to break a revenue figure down by any dimension.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">Outcome</p>
+      <h2>What leadership gets</h2>
+      <ul class="bullet-list">
+        <li>Clear visibility into inefficiencies in scheduling, billing and staffing.</li>
+        <li>A way to identify the points where revenue leaks.</li>
+        <li>A data-driven foundation for operational improvements, with KPIs that stay consistent across every page.</li>
+      </ul>
+    </section>
+
+    <section class="section wrap case-section">
+      <p class="section-label">More</p>
+      <div class="case-nav">
+        <a class="btn btn-secondary" href="https://github.com/Awonfor/Evergreen_Health_Center" target="_blank" rel="noopener">Full write-up on GitHub</a>
+        <a class="btn btn-primary" href="project-stellar-mart.html">Other project: Stellar Mart</a>
+      </div>
+      <p class="video-caption" style="margin-top: var(--space-3);">Personal project built for learning and portfolio purposes, using a public hospital management dataset from Kaggle.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; 2026 Bleezy Data Lab.</p>
+      <div class="footer-links">
+        <a href="mailto:romanusawonfor@gmail.com">Email</a>
+        <a href="https://github.com/Awonfor" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/awonfor-forcham" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.video-tab');
+      var video = document.querySelector('.video-frame video');
+      var caption = document.querySelector('.video-caption[aria-live]');
+      if (!tabs.length || !video) return;
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (t) { t.setAttribute('aria-selected', 'false'); });
+          tab.setAttribute('aria-selected', 'true');
+          video.pause();
+          video.poster = tab.dataset.poster;
+          video.src = tab.dataset.src;
+          video.load();
+          if (caption) caption.innerHTML = tab.dataset.caption;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
